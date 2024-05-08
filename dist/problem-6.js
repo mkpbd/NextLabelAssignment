@@ -11,6 +11,6 @@ function isRecentBook(book) {
 const book1 = {
     title: "Sample Book",
     author: "John Doe",
-    publishedYear: 2022
+    publishedYear: 2022,
 };
 console.log(isRecentBook(book1));
