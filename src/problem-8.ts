@@ -10,3 +10,4 @@ class Car {
 
 const car = new Car("Toyota", "Corolla", 2020);
 car.displayInfo();
+

@@ -1,15 +1,13 @@
 
 
-const logString  = (str: unknown) => {
+const logString  = (str: unknown) : string  =>  {
 
     if(typeof str === "string"){
         return str;
     }
 
-    if(typeof str !== "string"){
-
-        throw new Error("Input is not a string.");
-    }
+        return "Input is not a string.";
+    
 } 
 
 
