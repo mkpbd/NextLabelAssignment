@@ -8,4 +8,4 @@ const logString = (str) => {
     }
 };
 console.log(logString("Hello, TypeScript!"));
-// console.log(logString(42))
+console.log(logString(42));
