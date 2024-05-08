@@ -4,7 +4,10 @@ class Car {
         this.brand = brand;
         this.model = model;
         this.year = year;
+    }
+    displayInfo() {
         console.log(`Your car model is:  ${this.year}  ${this.brand} ${this.model}`);
     }
 }
-new Car("Toyota", "Corolla", 2020);
+const car = new Car("Toyota", "Corolla", 2020);
+car.displayInfo();
