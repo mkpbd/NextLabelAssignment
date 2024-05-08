@@ -10,3 +10,5 @@ function reverseArray<T>(arrRevers : T[]) : Array<T> {
 
 console.log(reverseArray(["apple", "banana", "cherry"]));
 console.log(reverseArray([10, 20, 30]));
+
+
