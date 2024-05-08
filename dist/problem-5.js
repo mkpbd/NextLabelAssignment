@@ -6,6 +6,6 @@ function calculateAverageGrade(student) {
 const student1 = {
     name: "Bob",
     age: 17,
-    grades: [75, 80, 82, 88, 90]
+    grades: [75, 80, 82, 88, 90],
 };
 console.log(calculateAverageGrade(student1));
