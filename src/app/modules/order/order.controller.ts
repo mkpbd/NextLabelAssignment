@@ -1,4 +1,3 @@
-
 import { Request, Response } from 'express';
 import { OrderValidationSchema } from './order.validation';
 import { orderService } from './order.service';
@@ -40,9 +39,9 @@ export const createOrder = async (req: Request, res: Response) => {
     product.inventory = {
       quantity: newQuantity,
       inStock: inStock,
-    }
-    
-    await ProductService.updateProduct(validateData.productId, product );
+    };
+
+    await ProductService.updateProduct(validateData.productId, product);
     // create order in db
     const order = await orderService.createOrder(validateData);
 

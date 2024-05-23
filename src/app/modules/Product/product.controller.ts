@@ -1,24 +1,47 @@
-import  { Request, Response } from 'express';
+import { Request, Response } from 'express';
 import { ProductService } from './product.service';
+import { PartialProductValidationSchema } from './product.validation';
+import { ZodError } from 'zod';
+import Product from './Iproduct.interface';
 
 const createProduct = async (req: Request, res: Response) => {
   try {
-    const product = req.body;
-    const result = await ProductService.createProductToDB(product);
+    const product: Product = req.body;
+
+    const productDataValidation = PartialProductValidationSchema.parse(product);
+    const result = await ProductService.createProductToDB(
+      productDataValidation,
+    );
 
     res.status(200).json({
       success: true,
       message: 'produt is created succssfully ',
       data: result,
     });
-  } catch (err) {
-    console.log(err);
+  } catch (error: any) {
+    // zod error handling
+    if (error instanceof ZodError) {
+      const validationErrors = error.errors.map(
+        (err) => err.path[0] + ' ' + err.message,
+      );
+      res.status(400).send({
+        success: false,
+        message: validationErrors[0],
+      });
+    } else {
+      // Handle other types of errors
+      res.status(500).send({
+        success: false,
+        message: error.message || 'Internal server error.',
+      });
+    }
   }
 };
 
 const getllProducts = async (req: Request, res: Response) => {
   try {
-    const result = await ProductService.getlAllProducts();
+    const searchQuery = req.query;
+    const result = await ProductService.getlAllProducts(searchQuery);
     res.status(200).json({
       success: true,
       message: 'produts are retrived succssfully ',
