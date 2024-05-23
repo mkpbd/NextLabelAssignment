@@ -20,9 +20,10 @@ async function getProdictDelete(productId: string) {
   return result;
 }
 async function updateProduct(productId: string, proudct: Product) {
-  const result = await productModel.updateOne(
+  const result = await productModel.findOneAndUpdate(
     { _id: productId },
     { $set: proudct },
+    { new: true, runValidators: true },
   );
   return result;
 }

@@ -1,8 +1,8 @@
+
 import { Request, Response } from 'express';
 import { OrderValidationSchema } from './order.validation';
 import { orderService } from './order.service';
-import { productService } from '../product/product.service';
-
+import { ProductService } from '../Product/product.service';
 export const createOrder = async (req: Request, res: Response) => {
   try {
     const orderData = req.body;
@@ -10,7 +10,7 @@ export const createOrder = async (req: Request, res: Response) => {
     // for validate order
     const validateData = OrderValidationSchema.parse(orderData);
     // check if product exists
-    const product = await productService.getProductById(orderData.productId);
+    const product = await ProductService.getSingleProduct(orderData.productId);
     if (product === null) {
       throw new Error('product not found');
     }
@@ -36,7 +36,7 @@ export const createOrder = async (req: Request, res: Response) => {
     // order price and product price should be same
     validateData.price = product.price;
 
-    await productService.updateProductById(validateData.productId, {
+    await ProductService.updateProduct(validateData.productId, {
       inventory: {
         quantity: newQuantity,
         inStock: inStock,
