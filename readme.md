@@ -70,7 +70,7 @@ Product entpoints
 
 #### Get All Products
 
-https://assignemt-2-moyhbxygt-mostofa-kamals-projects.vercel.app/api/products
+[assignemt-2.vercel.app/api/products](https://assignemt-2.vercel.app/api/products)
 
 - **URL:** `/api/products`
 - **Method:** `GET`
@@ -78,7 +78,7 @@ https://assignemt-2-moyhbxygt-mostofa-kamals-projects.vercel.app/api/products
 
 #### Get Product by ID
 
-https://assignemt-2-moyhbxygt-mostofa-kamals-projects.vercel.app/api/products/productId
+[assignemt-2.vercel.app/api/products](https://assignemt-2.vercel.app/api/products)/productId
 
 - **URL:** `/api/products/:productId`
 - **Method:** `GET`
@@ -86,7 +86,7 @@ https://assignemt-2-moyhbxygt-mostofa-kamals-projects.vercel.app/api/products/pr
 
 #### Update Product by ID
 
-https://assignemt-2-moyhbxygt-mostofa-kamals-projects.vercel.app/api/products/productId
+[assignemt-2.vercel.app/api/products](https://assignemt-2.vercel.app/api/products)/productId
 
 - **URL:** `/api/products/:productId`
 - **Method:** `PUT`
@@ -100,7 +100,7 @@ https://assignemt-2-moyhbxygt-mostofa-kamals-projects.vercel.app/api/products/pr
 
 #### Delete Product by ID
 
-https://assignemt-2-moyhbxygt-mostofa-kamals-projects.vercel.app/api/products/productId
+[assignemt-2.vercel.app/api/products](https://assignemt-2.vercel.app/api/products)/productId
 
 - **URL:** `/api/products/:productId`
 - **Method:** `DELETE`
@@ -108,7 +108,7 @@ https://assignemt-2-moyhbxygt-mostofa-kamals-projects.vercel.app/api/products/pr
 
 #### Search Products
 
-https://next-label-assignment.vercel.app/api/products
+[assignemt-2.vercel.app/api/products](https://assignemt-2.vercel.app/api/products)?`searchTerm=iphone`
 
 - **URL:** `/api/products?searchTerm=iphone`
 - **Method:** `GET`
@@ -116,13 +116,13 @@ https://next-label-assignment.vercel.app/api/products
 
 ### Order Endpoints
 
-https://next-label-assignment.vercel.app/api/orders
+[assignemt-2.vercel.app/api/orders](https://assignemt-2.vercel.app/api/orders)
 
 #### Create a New Order
 
 get postman or other clienst
 
-https://next-label-assignment.vercel.app/api/orders
+[assignemt-2.vercel.app/api/orders](https://assignemt-2.vercel.app/api/orders)
 
 - **URL:** `/api/orders`
 - **Method:** `POST`
@@ -139,7 +139,7 @@ https://next-label-assignment.vercel.app/api/orders
 
 #### Get All Orders
 
-https://assignemt-2-moyhbxygt-mostofa-kamals-projects.vercel.app/api/orders
+[assignemt-2.vercel.app/api/orders](https://assignemt-2.vercel.app/api/orders)
 
 - **URL:** `/api/orders`
 - **Method:** `GET`
@@ -147,10 +147,18 @@ https://assignemt-2-moyhbxygt-mostofa-kamals-projects.vercel.app/api/orders
 
 #### Get Orders by Email
 
-https://assignemt-2-moyhbxygt-mostofa-kamals-projects.vercel.app/api/orders
+[assignemt-2.vercel.app/api/orders](https://assignemt-2.vercel.app/api/orders)
 
 - **URL:** `/api/orders?email=level2@programming-hero.com`
 - **Method:** `GET`
 - **Description:** Retrieves orders by email.
+
+#### Delete orders
+
+[assignemt-2.vercel.app/api/orders](https://assignemt-2.vercel.app/api/orders)
+
+- **URL:** `/api/orders/orderId`
+- **Method:** `GET`
+- **Description:** delete orders
 
 ## Usage
