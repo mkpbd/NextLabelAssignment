@@ -35,7 +35,7 @@ export const createOrder = async (req: Request, res: Response) => {
 
     // order price and product price should be same
     validateData.price = product.price;
-
+    
     await ProductService.updateProduct(validateData.productId, {
       inventory: {
         quantity: newQuantity,
