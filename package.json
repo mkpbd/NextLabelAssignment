@@ -4,8 +4,8 @@
   "description": "express mongo zod",
   "main": "index.js",
   "scripts": {
-    "build": "build --output public",
-  
+    
+    "build": "node ./dist/server.js",
     "start:dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "builds": "tsc",
     "lint": "eslint src --ignore-path .eslintignore --ext .ts",

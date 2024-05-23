@@ -3,6 +3,7 @@ import { Request, Response } from 'express';
 import { OrderValidationSchema } from './order.validation';
 import { orderService } from './order.service';
 import { ProductService } from '../Product/product.service';
+
 export const createOrder = async (req: Request, res: Response) => {
   try {
     const orderData = req.body;
@@ -35,13 +36,13 @@ export const createOrder = async (req: Request, res: Response) => {
 
     // order price and product price should be same
     validateData.price = product.price;
+
+    product.inventory = {
+      quantity: newQuantity,
+      inStock: inStock,
+    }
     
-    await ProductService.updateProduct(validateData.productId, {
-      inventory: {
-        quantity: newQuantity,
-        inStock: inStock,
-      },
-    });
+    await ProductService.updateProduct(validateData.productId, product );
     // create order in db
     const order = await orderService.createOrder(validateData);
 
@@ -50,10 +51,10 @@ export const createOrder = async (req: Request, res: Response) => {
       message: 'order created successfully',
       data: order,
     });
-  } catch (err: any) {
+  } catch (err) {
     res.status(404).send({
       success: false,
-      message: err.message,
+      message: err,
     });
   }
 };
@@ -80,10 +81,10 @@ export const getOrders = async (req: Request, res: Response) => {
         : 'orders fetched successfully',
       data: orders,
     });
-  } catch (err: any) {
+  } catch (err) {
     res.status(404).send({
       success: false,
-      message: err.message,
+      message: err,
     });
   }
 };

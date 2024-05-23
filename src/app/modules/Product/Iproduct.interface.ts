@@ -1,17 +1,17 @@
 // Define the schema for the product variants
-interface Variant {
+type Variant = {
   type: string;
   value: string;
 }
 
 // Define the schema for the inventory details
-interface Inventory {
+type Inventory = {
   quantity: number;
   inStock: boolean;
 }
 
 // Define the schema for the product
-interface Product {
+type Product = {
   name: string;
   description: string;
   price: number;
