@@ -6,6 +6,31 @@ async function createProductToDB(product: Product) {
   return result;
 }
 
+async function getlAllProducts() {
+  const result = await productModel.find();
+  return result;
+}
+async function getSingleProduct(productId: string) {
+  //  const productId = new ObjectId(id);
+  const result = await productModel.findOne({ _id: productId });
+  return result;
+}
+async function getProdictDelete(productId: string) {
+  const result = await productModel.deleteOne({ _id: productId });
+  return result;
+}
+async function updateProduct(productId: string, proudct: Product) {
+  const result = await productModel.updateOne(
+    { _id: productId },
+    { $set: proudct },
+  );
+  return result;
+}
+
 export const ProductService = {
   createProductToDB,
+  getlAllProducts,
+  getSingleProduct,
+  getProdictDelete,
+  updateProduct,
 };
