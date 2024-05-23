@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { ProductService } from './product.service';
-import { PartialProductValidationSchema } from './product.validation';
+import { ProductValidationSchema } from './product.validation';
 import { ZodError } from 'zod';
 import Product from './Iproduct.interface';
 
@@ -8,7 +8,7 @@ const createProduct = async (req: Request, res: Response) => {
   try {
     const product: Product = req.body;
 
-    const productDataValidation = PartialProductValidationSchema.parse(product);
+    const productDataValidation = ProductValidationSchema.parse(product);
     const result = await ProductService.createProductToDB(
       productDataValidation,
     );
@@ -18,7 +18,7 @@ const createProduct = async (req: Request, res: Response) => {
       message: 'produt is created succssfully ',
       data: result,
     });
-  } catch (error: any) {
+  } catch (error) {
     // zod error handling
     if (error instanceof ZodError) {
       const validationErrors = error.errors.map(
@@ -32,7 +32,7 @@ const createProduct = async (req: Request, res: Response) => {
       // Handle other types of errors
       res.status(500).send({
         success: false,
-        message: error.message || 'Internal server error.',
+        message: error || 'Internal server error.',
       });
     }
   }

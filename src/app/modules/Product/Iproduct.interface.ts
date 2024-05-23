@@ -2,13 +2,13 @@
 type Variant = {
   type: string;
   value: string;
-}
+};
 
 // Define the schema for the inventory details
 type Inventory = {
   quantity: number;
   inStock: boolean;
-}
+};
 
 // Define the schema for the product
 type Product = {
@@ -19,6 +19,6 @@ type Product = {
   tags: string[];
   variants: Variant[];
   inventory: Inventory;
-}
+};
 
 export default Product;
