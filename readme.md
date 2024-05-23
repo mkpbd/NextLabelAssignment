@@ -7,8 +7,10 @@ It includes endpoints of creating products and orders updating and deleteing pro
 ### Techonlogies
 
 1. Node.js
-2. MonogoDB
+2. MonogoDB and mogoos for ODM
 3. Typescript
+4. Zod for validation
+5. ExpressJs Framework
 
 ---
 
